@@ -5,3 +5,12 @@
   align-items: center;
   margin: 2rem 0;
 }
+
+.errorInput {
+  ::ng-deep.mat-form-field-underline {
+    background: red;
+  }
+  ::ng-deep.mat-form-field-label  {
+    color: red;
+  }
+}
