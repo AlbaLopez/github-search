@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {UsersService} from "../../services/users.service";
 import {UIComponent} from "../../classes/uiComponent";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-search',
@@ -10,8 +11,10 @@ import {UIComponent} from "../../classes/uiComponent";
 export class SearchComponent extends UIComponent {
 
   public query;
+
   constructor(
-    private usersService: UsersService
+    private usersService: UsersService,
+    private router: Router
   ) {
     super();
   }
@@ -22,7 +25,9 @@ export class SearchComponent extends UIComponent {
       if (results.items.length === 0) {
         this.setUIBlank();
       } else {
-        // navigate to search results.
+        this.usersService.totalResults = results.total_count;
+        this.usersService.users = results.items;
+        this.router.navigate(['/results'], {queryParams: {query: this.query}});
       }
     }, (() => {
       this.setUIError();

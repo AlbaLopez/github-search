@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
 
-class UserResponse {
+export class UserResponse {
   incomplete_results: boolean;
   items: User[];
   total_count: number;
@@ -36,11 +36,12 @@ class User {
 })
 export class UsersService {
 
-  public users: User[];
-  
+  public users: User[] = [];
+  public totalResults: number;
+
   constructor(private http: HttpClient) { }
 
-  public searchUsers(query): Observable<UserResponse> {
-    return this.http.get<UserResponse>(`${environment.searchApi}users?q=${query}`)
+  public searchUsers(query, page = 0): Observable<UserResponse> {
+    return this.http.get<UserResponse>(`${environment.searchApi}users?q=${query}&page=${page + 1}&per_page=10`)
   }
 }
