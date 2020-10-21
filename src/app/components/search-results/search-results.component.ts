@@ -15,9 +15,10 @@ export class SearchResultsComponent extends UIComponent implements AfterViewInit
 
   public displayedColumns: string[] =
     ['avatar_url', 'login', 'name', 'location', 'company', 'biography', 'followers', 'score'];
-  private query;
   public rateLimitReached = false;
   public rating = Array(5);
+
+  private query;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(

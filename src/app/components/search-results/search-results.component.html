@@ -5,7 +5,7 @@
     GitHub's API rate limit has been reached. It will be reset in one minute.
   </div>
 </div>
-<div style="overflow-x: auto" *ngIf="!rateLimitReached">
+<div style="overflow-x: auto" *ngIf="!rateLimitReached" [hidden]="isUILoading()">
   <table mat-table [dataSource]="usersService?.users">
 
     <ng-container matColumnDef="avatar_url">
