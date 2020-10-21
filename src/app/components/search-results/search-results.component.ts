@@ -40,7 +40,7 @@ export class SearchResultsComponent extends UIComponent implements AfterViewInit
   }
 
   ngAfterViewInit(): void {
-    this.paginator.page.pipe(
+    this.paginator?.page.pipe(
       switchMap(() => {
         this.setUILoading();
         return this.usersService.searchUsers(
