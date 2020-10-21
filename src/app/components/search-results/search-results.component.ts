@@ -59,4 +59,8 @@ export class SearchResultsComponent extends UIComponent implements AfterViewInit
       this.usersService.users = users;
     });
   }
+
+  openGitHubPage(url) {
+    window.open(url, "_blank");
+  }
 }

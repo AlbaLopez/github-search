@@ -51,7 +51,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openGitHubPage(row.html_url)"></tr>
   </table>
 
   <mat-paginator [length]="usersService.totalResults" [pageSize]="10"></mat-paginator>
