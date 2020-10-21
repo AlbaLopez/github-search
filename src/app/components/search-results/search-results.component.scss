@@ -6,3 +6,26 @@
 .limitReached {
   margin-top: 1.5rem;
 }
+
+.mat-header-cell {
+  text-align: center;
+}
+
+.mat-cell {
+  text-align: center;
+  padding: 1rem 1rem 1rem 0;
+}
+
+::ng-deep.mat-paginator-range-label {
+  font-weight: bold;
+  color: black;
+}
+
+::ng-deep .mat-icon {
+  color: goldenrod;
+}
+
+.table {
+  overflow: auto;
+  max-height: 500px;
+}

@@ -4,7 +4,6 @@ import {ActivatedRoute} from "@angular/router";
 import {catchError, map, switchMap} from "rxjs/operators";
 import {UIComponent} from "../../classes/uiComponent";
 import {MatPaginator} from "@angular/material/paginator";
-import {MatSort} from "@angular/material/sort";
 import {of} from "rxjs";
 
 @Component({
@@ -14,12 +13,12 @@ import {of} from "rxjs";
 })
 export class SearchResultsComponent extends UIComponent implements AfterViewInit {
 
-  public displayedColumns: string[] = ['login', 'avatar_url'];
+  public displayedColumns: string[] =
+    ['avatar_url', 'login', 'name', 'location', 'company', 'biography', 'followers', 'score'];
   private query;
   public rateLimitReached = false;
-
+  public rating = Array(5);
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     public usersService: UsersService,
@@ -60,5 +59,4 @@ export class SearchResultsComponent extends UIComponent implements AfterViewInit
       this.usersService.users = users;
     });
   }
-
 }
