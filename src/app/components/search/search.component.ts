@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class SearchComponent extends UIComponent {
 
   public query;
+  public errorMessage;
 
   constructor(
     private usersService: UsersService,
@@ -29,7 +30,8 @@ export class SearchComponent extends UIComponent {
         this.usersService.users = results.items;
         this.router.navigate(['/results'], {queryParams: {query: this.query}});
       }
-    }, (() => {
+    }, ((error) => {
+      this.errorMessage = error.statusText;
       this.setUIError();
     }))
   }

@@ -3,7 +3,7 @@
     <h2>Search more than <strong>553M</strong> issues</h2>
     <mat-form-field class="searchForm" [class.errorInput]="isUIError()">
       <mat-label *ngIf="!isUIError()">Search GitHub</mat-label>
-      <mat-label *ngIf="isUIError()">Search error :(</mat-label>
+      <mat-label *ngIf="isUIError()">{{errorMessage}}</mat-label>
       <input
         matInput
         type="text"
